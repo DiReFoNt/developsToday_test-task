@@ -80,6 +80,7 @@ The project includes the following main components (located in `src/components`)
 
 - **Files:** `Sidebar.tsx`, `Sidebar.module.scss`, `Sidebar.stories.tsx`
 - **Description:** A sidebar component. It is likely used for the main application navigation. The `motion` library may be used for animations (e.g., sliding in/out).
+- You can also transfer any components to the header, content, or footer sections of the sidebar.
 - **Screenshots:**
   - **Default Sidebar:**
     ![Default Sidebar](screenshots/default_sidebar.png)
