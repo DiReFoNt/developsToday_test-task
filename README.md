@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# DevelopsToday Test Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a test task implementation using React, TypeScript, and Vite. It includes a set of UI components developed in an isolated environment using Storybook.
 
-Currently, two official plugins are available:
+### 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19**
+- **TypeScript**
+- **Vite** (build tool)
+- **SCSS (Sass)** (styling with CSS Modules)
+- **Storybook** (for component development and demonstration)
+- **Motion** (Framer Motion) (for animations)
+- **ESLint** & **Prettier** (for code quality and formatting)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Setup and Launch Instructions
 
-## Expanding the ESLint configuration
+To run the project on your local machine, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Clone the repository:**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    ```bash
+    git clone [https://github.com/DiReFoNt/developsToday_test-task.git](https://github.com/DiReFoNt/developsToday_test-task.git)
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2.  **Navigate to the project directory:**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ```bash
+    cd developsToday_test-task
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3.  **Install dependencies:**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    ```bash
+    npm install
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4.  **Run the dev server (main application):**
+
+    ```bash
+    npm run dev
+    ```
+
+    After this, open `http://localhost:5173` (or the port specified in your console) in your browser.
+
+5.  **Run Storybook (for component viewing):**
+    This is the recommended way to view and test the project's UI components.
+    ```bash
+    npm run storybook
+    ```
+    Storybook will be available at `http://localhost:6006`.
+
+### ⚙️ Additional Scripts
+
+- `npm run build`: Builds the production version of the project.
+- `npm run preview`: Runs a local server to preview the production build.
+- `npm run lint`: Runs ESLint to check the code for errors.
+- `npm run build-storybook`: Creates a static build of Storybook.
+
+---
+
+## 🏛️ Component Overview
+
+All components are developed using **SCSS Modules** for style encapsulation and **TypeScript** for strict typing. The components are documented and showcased in **Storybook**.
+
+The project includes the following main components (located in `src/components`):
+
+### 1. Input
+
+- **Files:** `Input.tsx`, `Input.module.scss`, `Input.stories.tsx`
+- **Description:** A customized input field component (`<input>`). It is isolated and has its own styles.
+- **Screenshots:**
+  - **Default Input:**
+    ![Default Input](screenshots/input_with_placeholder.png)
+  - **Password Input:**
+    ![Password Input](screenshots/input_type_password.png)
+
+### 2. Sidebar
+
+- **Files:** `Sidebar.tsx`, `Sidebar.module.scss`, `Sidebar.stories.tsx`
+- **Description:** A sidebar component. It is likely used for the main application navigation. The `motion` library may be used for animations (e.g., sliding in/out).
+- **Screenshots:**
+  - **Default Sidebar:**
+    ![Default Sidebar](screenshots/default_sidebar.png)
+  - **Sidebar with Menu:**
+    ![Sidebar with Menu](screenshots/sidebar_with_menu.png)
+
+### 3. Toast
+
+- **Files:** `Toast.tsx`, `Toast.module.scss`, `Toast.stories.tsx`, `Toast.types.ts`
+- **Description:** A "Toast" (pop-up notification) component. The presence of a separate `Toast.types.ts` file suggests that the component accepts various `props` to configure its behavior and appearance (e.g., `type: 'success' | 'error'`). The `motion` library is likely used for its appear/disappear animations.
+- **Screenshots:**
+  - **Info Toast:**
+    ![Info Toast](screenshots/info_toast.png)
+  - **Warning Toast:**
+    ![Warning Toast](screenshots/warning_toast.png)
+  - **Error Toast:**
+    ![Error Toast](screenshots/error_toast.png)
